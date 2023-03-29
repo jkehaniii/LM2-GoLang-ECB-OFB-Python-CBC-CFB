@@ -1,0 +1,20 @@
+Package main
+
+func main() {
+	var x, i int = 0, 0
+	var xor int = 0
+	var lookupValue int = 0
+	lookupValue = codebookLookup(iv)
+	for i = 0; i < 4; i++ {
+		xor = message[x] ^ lookupValue
+		lookupValue = codebookLookup(xor)
+		x++
+		}
+    
+func encryptECB(plaintext []int) []int {
+	var ciphertext []int
+	for _, block := range plaintext {
+		lookupValue := codebookLookup(block)
+		ciphertext = append(ciphertext, lookupValue)
+	}
+	return ciphertext
