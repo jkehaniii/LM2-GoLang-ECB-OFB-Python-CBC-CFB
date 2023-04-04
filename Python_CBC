@@ -1,20 +1,18 @@
-# Import libraries
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 import binascii
 
-# Define encryption function
+
 def encrypt_cbc(key, iv, plaintext):
     cipher = AES.new(key, AES.MODE_CBC, iv)
     ciphertext = cipher.encrypt(pad(plaintext, AES.block_size))
     return ciphertext
 
-# Define key, vector and plaintext values
-key = binascii.unhexlify('00112233445566778899aabbccddeeff') # 128-bit key in hex
-iv = binascii.unhexlify('0102030405060708090a0b0c0d0e0f10') # 128-bit IV in hex
-plaintext = b'Hello, world!' # plaintext message to encrypt
 
-# Perform encryption
+key = binascii.unhexlify('00112233445566778899aabbccddeeff')  # 128-bit key in hex
+iv = binascii.unhexlify('0102030405060708090a0b0c0d0e0f10')  # 128-bit IV in hex
+plaintext = b'Hello, this is our plaintext message for IST 402'  # plaintext message to encrypt
+
 ciphertext = encrypt_cbc(key, iv, plaintext)
 print('Plaintext: {}'.format(plaintext))
 print('Ciphertext: {}'.format(binascii.hexlify(ciphertext)))
