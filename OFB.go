@@ -1,4 +1,4 @@
-package LM2_ECB_OFB
+package main
 
 // Import relevant libraries
 import (
